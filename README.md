@@ -1,4 +1,4 @@
-# test_app
+# instagram_clone_app
 
 A new Flutter project.
 
