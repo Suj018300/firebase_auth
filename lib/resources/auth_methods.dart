@@ -25,13 +25,6 @@ class AuthMethods {
             if (file.isEmpty) {
   return "Selected image is empty or invalid.";
 }
-
-
-            // String photoURL = await StorageMethods().uploadImageToStorage(
-            //   childName: 'Profile_pic',
-            //   file: file,
-            //   uid: cred.user!.uid, // ✅ use UID from the new user
-            // );
   
             // add user to our database
             await _firestore.collection('users').doc(cred.user!.uid).set({
@@ -50,47 +43,6 @@ class AuthMethods {
         }
         return res;
     }
-
-//     Future<String> signUpUser({
-//   required String email,
-//   required String password,
-//   required String username,
-//   required Uint8List file,
-// }) async {
-//   String res = "Some error occurred";
-
-//   try {
-//     print("Starting signup");
-//     UserCredential cred = await _auth.createUserWithEmailAndPassword(
-//       email: email,
-//       password: password,
-//     );
-//     print("Firebase Auth Success. UID: ${cred.user!.uid}");
-
-//     // TEMP: Use dummy image to bypass Firebase Storage
-//     String photoURL = 'https://dummyimage.com/200x200/000/fff.png&text=Temp';
-
-//     print("Attempting Firestore write...");
-//     await _firestore.collection('users').doc(cred.user!.uid).set({
-//       'username': username,
-//       'uid': cred.user!.uid,
-//       'email': email,
-//       'followers': [],
-//       'followings': [],
-//       'photoURL': photoURL,
-//     });
-
-//     print("Firestore write successful ✅");
-
-//     res = "Success";
-//   } catch (err) {
-//     print("Error during signUpUser: $err");
-//     res = err.toString();
-//   }
-
-//   return res;
-// }
-
 
   // login user
   Future<String> loginUser({
