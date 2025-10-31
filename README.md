@@ -1,4 +1,4 @@
-# instagram_clone_app
+# Firebase Auth app
 
 A new Flutter project.
 
